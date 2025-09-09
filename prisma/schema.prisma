@@ -14,4 +14,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Ratios {
+  id        Int @id @default(autoincrement())
+  settingid Int
+  charid    Int
+  xpercent  Float
+  ypercent  Float
 
+  @@unique([settingid, charid])
+}
