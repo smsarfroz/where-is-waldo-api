@@ -35,7 +35,23 @@ async function getRatios(settingid, charid) {
     }
 }
 
+async function addSetting(name, imglocation, difficulty, credits) {
+    try {
+        const setting = await prisma.Settings.create({
+            data: {
+                name: name,
+                imglocation: imglocation,
+                difficulty: difficulty,
+                credits: credits
+            }
+        });
+        return setting;
+    } catch (error) {
+        console.error(error);
+    }
+}
 export default {
     addNewCharacter,
     getRatios,
+    addSetting
 }

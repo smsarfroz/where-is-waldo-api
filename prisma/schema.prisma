@@ -15,11 +15,19 @@ datasource db {
 }
 
 model Ratios {
-  id        Int @id @default(autoincrement())
+  id        Int   @id @default(autoincrement())
   settingid Int
   charid    Int
   xpercent  Float
   ypercent  Float
 
   @@unique([settingid, charid])
+}
+
+model Settings {
+  id          Int    @id @default(autoincrement())
+  name        String @unique
+  imglocation String
+  difficulty  String
+  credits     String
 }
