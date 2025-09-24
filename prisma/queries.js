@@ -50,8 +50,20 @@ async function addSetting(name, imglocation, difficulty, credits) {
         console.error(error);
     }
 }
+
+async function getAllSettings() {
+    try {
+        const settings = await prisma.Settings.findMany();
+
+        return settings; 
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 export default {
     addNewCharacter,
     getRatios,
-    addSetting
+    addSetting,
+    getAllSettings
 }

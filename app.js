@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 app.get("/", (req, res) => res.send("Hello, world!"));
 
-app.use("/play", gameRouter);
+app.use("/settings", gameRouter);
 
 app.use((err, req, res, next) => {
   console.error(err);
