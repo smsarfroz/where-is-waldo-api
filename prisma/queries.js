@@ -1,12 +1,14 @@
 import { PrismaClient } from "../generated/prisma/index.js";
 const prisma = new PrismaClient();
 
-async function addNewCharacter(settingid, charid, xpercent, ypercent) {
+async function addNewCharacter(settingid, charid, charname, imglocation, xpercent, ypercent) {
     try {
-        const character = await prisma.Ratios.create({
+        const character = await prisma.Characters.create({
             data: {
                 settingid: settingid,
                 charid: charid,
+                charname: charname,
+                imglocation: imglocation,
                 xpercent: xpercent,
                 ypercent: ypercent
             }
@@ -17,28 +19,20 @@ async function addNewCharacter(settingid, charid, xpercent, ypercent) {
     }
 }
 
-async function getRatios(settingid, charid) {
+async function getAllCharacters() {
     try {   
-        const ratios = await prisma.Ratios.findFirst({
-            where: {
-                settingid: settingid,
-                charid: charid
-            },
-            select: {
-                xpercent: true,
-                ypercent: true
-            }
-        })
-        return ratios;
+        const characters = await prisma.Characters.findMany();
+        return characters;
     } catch (error) {
         console.error(error);
     }
 }
 
-async function addSetting(name, imglocation, difficulty, credits) {
+async function addSetting(settingid, name, imglocation, difficulty, credits) {
     try {
         const setting = await prisma.Settings.create({
             data: {
+                settingid: settingid,
                 name: name,
                 imglocation: imglocation,
                 difficulty: difficulty,
@@ -63,7 +57,7 @@ async function getAllSettings() {
 
 export default {
     addNewCharacter,
-    getRatios,
+    getAllCharacters,
     addSetting,
     getAllSettings
 }

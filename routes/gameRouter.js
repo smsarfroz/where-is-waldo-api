@@ -7,6 +7,6 @@ const gameRouter = Router({ mergeParams: true });
 // gameRouter.get("/:settingid", );
 gameRouter.post("/:settingid/verify/:charid", verifyCharacter);
 
-gameRouter.post("/", getAllSettings);
+gameRouter.get("/", getAllSettings);
 
 export default gameRouter;

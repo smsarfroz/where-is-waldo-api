@@ -5,6 +5,7 @@ const getAllSettings = async(req, res) => {
         const settings = await prisma.getAllSettings();
 
         return res.json(settings);
+                
     } catch (error) {
         console.error(error);
     }

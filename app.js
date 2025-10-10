@@ -1,5 +1,6 @@
 import express from "express";
 import gameRouter from "./routes/gameRouter.js";
+import characterRouter from "./routes/characterRouter.js";
 import cors from 'cors';
 import 'dotenv/config';
 
@@ -10,6 +11,7 @@ app.use(express.json());
 app.get("/", (req, res) => res.send("Hello, world!"));
 
 app.use("/settings", gameRouter);
+app.use("/characters", characterRouter);
 
 app.use((err, req, res, next) => {
   console.error(err);

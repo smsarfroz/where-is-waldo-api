@@ -14,18 +14,21 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Ratios {
-  id        Int   @id @default(autoincrement())
-  settingid Int
-  charid    Int
-  xpercent  Float
-  ypercent  Float
+model Characters {
+  id          Int    @id @default(autoincrement())
+  settingid   Int
+  charid      Int
+  charname    String
+  imglocation String
+  xpercent    Float?
+  ypercent    Float?
 
   @@unique([settingid, charid])
 }
 
 model Settings {
   id          Int    @id @default(autoincrement())
+  settingid   Int
   name        String @unique
   imglocation String
   difficulty  String
