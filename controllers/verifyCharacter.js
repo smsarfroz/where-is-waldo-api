@@ -6,6 +6,7 @@ import prisma from "../prisma/queries.js";
 
 0.0289 , 1.572
  */
+
 const radiusSquared = 2.4725;
 const verifyCharacter = async (req, res) => {
   try {
@@ -14,17 +15,17 @@ const verifyCharacter = async (req, res) => {
     const cid = parseInt(charid);
 
     const { option, xpercentu, ypercentu } = req.body;
-    console.log("sid, cid ", sid, cid);
-    console.log("req.body ", req.body);
+    // console.log("sid, cid ", sid, cid);
+    // console.log("req.body ", req.body);
 
     const ratios = await prisma.getRatios(sid, cid);
-    console.log("ratios ", ratios);
+    // console.log("ratios ", ratios);
     const { xpercent, ypercent } = ratios;
     const distanceSquared =
       Math.abs(xpercent - xpercentu) * Math.abs(xpercent - xpercentu) +
       Math.abs(ypercent - ypercentu) * Math.abs(ypercent - ypercentu);
 
-    console.log(distanceSquared, radiusSquared);
+    // console.log("distance squared ", distanceSquared, radiusSquared);
 
     if (distanceSquared <= radiusSquared) {
         res.json({ message: 'Success'});

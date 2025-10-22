@@ -28,6 +28,24 @@ async function getAllCharacters() {
     }
 }
 
+async function getRatios(settingid, charid) {
+    try {   
+        const ratios = await prisma.Characters.findFirst({
+            where: {
+                settingid: settingid,
+                charid: charid
+            },
+            select: {
+                xpercent: true,
+                ypercent: true
+            }
+        });
+        return ratios;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 async function addSetting(settingid, name, imglocation, difficulty, credits) {
     try {
         const setting = await prisma.Settings.create({
@@ -55,9 +73,44 @@ async function getAllSettings() {
     }
 }
 
+async function getLeaderboardforSetting(settingName) {
+    try {
+        const rows = await prisma.Leaderboards.findMany({
+            where: {
+                settingName: settingName
+            }, 
+            orderBy: {
+                timeTaken: 'asc'
+            }
+        });
+        return rows;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function addnewRowinLeaderboard(userName, timeTaken, settingName) {
+    try {
+        const row = await prisma.Leaderboards.create({
+            data: {
+                userName: userName,
+                timeTaken: timeTaken,
+                settingName: settingName
+            }
+        })
+        return row;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+
 export default {
     addNewCharacter,
     getAllCharacters,
     addSetting,
-    getAllSettings
+    getAllSettings,
+    getRatios,
+    getLeaderboardforSetting,
+    addnewRowinLeaderboard,
 }

@@ -1,6 +1,7 @@
 import express from "express";
 import gameRouter from "./routes/gameRouter.js";
 import characterRouter from "./routes/characterRouter.js";
+import leaderboardRouter from "./routes/leaderboardRouter.js";
 import cors from 'cors';
 import 'dotenv/config';
 
@@ -12,6 +13,7 @@ app.get("/", (req, res) => res.send("Hello, world!"));
 
 app.use("/settings", gameRouter);
 app.use("/characters", characterRouter);
+app.use("/leaderboard", leaderboardRouter);
 
 app.use((err, req, res, next) => {
   console.error(err);

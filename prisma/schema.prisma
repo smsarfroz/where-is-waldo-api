@@ -34,3 +34,11 @@ model Settings {
   difficulty  String
   credits     String
 }
+
+model Leaderboards {
+  id          Int    @id @default(autoincrement())
+  userName    String
+  timeTaken   String
+  timeStamp   DateTime @default(now())
+  settingName String
+}
