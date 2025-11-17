@@ -16,6 +16,6 @@ app.use("/characters", characterRouter);
 test("getAllCharacters controller works", done => {
     request(app)
         .get("/characters")
-        .expect({})
+        .expect([])
         .expect(200, done)
 });
