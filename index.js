@@ -37,7 +37,7 @@ async function main() {
     
     //setting1
     {
-        const character1 = prisma.addNewCharacter(1, 1, "Archer Lady", "/icons/set1/archer-lady.png" ,26.402050009621032, 26.13895344901505);
+        const character1 = prisma.addNewCharacter(1, 1, "Archer Lady", "/icons/set1/archer-lady.png", 26.402050009621032, 26.13895344901505);
         // const character2 = prisma.addNewCharacter(1, 2, "Ciclop", "/icons/set1/ciclop.png" ,36.42482905290122, 17.618521109280863);
         // const character3 = prisma.addNewCharacter(1, 3, "Medusa", "/icons/set1/medusa.png",13.00797256087388, 22.81742897759325);
         // const character4 = prisma.addNewCharacter(1, 4, "Minotaur", "/icons/set1/minotaur.png",94.73917985016773, 5.920978405577995);

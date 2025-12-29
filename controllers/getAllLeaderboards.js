@@ -17,6 +17,7 @@ const getAllLeaderboards = async(req, res) => {
         return res.json(Leaderboards);
     } catch (error) {
         console.error(error);
+        return res.status(500).json({ error: 'Failed to fetch leaderboards' });
     }
 };
 

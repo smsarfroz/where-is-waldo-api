@@ -6,8 +6,8 @@ const databaseUrl = process.env.NODE_ENV === "test"
   : process.env.DATABASE_URL;
 
 
-console.log("check ", process.env.NODE_ENV);
-console.log("databaseUrl ", databaseUrl);
+// console.log("check ", process.env.NODE_ENV);
+// console.log("databaseUrl ", databaseUrl);
 
 const prisma = new PrismaClient({
   datasources: {
