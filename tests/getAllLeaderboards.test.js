@@ -119,6 +119,8 @@ describe('GET /leaderboards', () => {
     });
 
     test('should handle database errors', async () => {
+        const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
         prisma.getLeaderboardforSetting.mockRejectedValueOnce(
             new Error('Database connection failed')
         );
@@ -128,6 +130,8 @@ describe('GET /leaderboards', () => {
             .expect(500);
 
         expect(response.body.error).toBe('Failed to fetch leaderboards');
+
+        consoleErrorSpy.mockRestore();
     });
 });
 

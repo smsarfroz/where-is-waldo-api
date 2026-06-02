@@ -9,7 +9,7 @@ const handleGameEntry = async(req, res) => {
         const { userName, timeTaken, settingName } = req.body;
 
         const row = await prisma.addnewRowinLeaderboard(userName, timeTaken, settingName);
-        res.json({message: 'successfully added to the Leaderboards!'});
+        return res.json({message: 'successfully added to the Leaderboards!'});
     } catch (error) {
         console.error(error);
         return res.status(500).json({ error: 'Failed to add to the Leaderboards' });
