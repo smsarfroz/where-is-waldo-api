@@ -11,3 +11,4 @@ const getAllCharacters = async(req, res) => {
 };
 
 export default getAllCharacters;
+
