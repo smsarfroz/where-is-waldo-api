@@ -25,6 +25,6 @@ app.listen(PORT, (error) => {
   if (error) {
     throw error;
   }
-  console.log(`MyExpress app - listening on port ${PORT}!`);
+  // console.log(`MyExpress app - listening on port ${PORT}!`);
 });
 

@@ -7,6 +7,7 @@ const getAllCharacters = async(req, res) => {
                 
     } catch (error) {
         console.error(error);
+        res.status(500).json({  error: 'Failed to fetch the characters' });
     }
 };
 

@@ -2,7 +2,7 @@ import prisma from "../prisma/queries.js";
 
 const handleGameEntry = async(req, res) => {
     try {
-        console.log("req.params ", req.params);
+        // console.log("req.params ", req.params);
         const { settingid } = req.params;
         const sid = parseInt(settingid);
 

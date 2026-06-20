@@ -31,7 +31,7 @@ async function main() {
         "https://imgur.com/gallery/lets-play-some-wheres-waldo-8exqx"
     );
 
-    console.log(setting1, setting2, setting3, setting4);
+    // console.log(setting1, setting2, setting3, setting4);
     
 
     
@@ -43,7 +43,7 @@ async function main() {
         const character4 = prisma.addNewCharacter(1, 4, "Minotaur", "/icons/set1/minotaur.png",94.73917985016773, 5.920978405577995);
         const character5 = prisma.addNewCharacter(1, 5, "Poseidon", "/icons/set1/poseidon.png",85.71867871121557, 87.83266026316792);
         const character6 = prisma.addNewCharacter(1, 6, "Zeus", "/icons/set1/zeus.png",59.568337025566365, 6.787463050296726);
-        console.log(character1, character2, character3, character4, character5, character6);
+        // console.log(character1, character2, character3, character4, character5, character6);
     }
 
     setting2 
